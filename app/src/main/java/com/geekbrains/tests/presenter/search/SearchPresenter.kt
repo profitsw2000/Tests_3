@@ -19,7 +19,8 @@ internal class SearchPresenter internal constructor(
     private val repository: GitHubRepository
 ) : PresenterSearchContract, GitHubRepositoryCallback {
 
-    private var view: ViewSearchContract? = null
+    var view: ViewSearchContract? = null
+        private set
 
     override fun searchGitHub(searchQuery: String) {
         view?.displayLoading(true)

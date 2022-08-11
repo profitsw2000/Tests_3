@@ -27,8 +27,9 @@ internal class DetailsPresenterTest {
 
     @Test
     fun setCounter_Test() {
-        presenter.setCounter(5)
-        assertEquals(presenter.getCounter(), 5)
+        val cnt = 5
+        presenter.setCounter(cnt)
+        assertEquals(presenter.getCounter(), cnt)
     }
 
     @Test

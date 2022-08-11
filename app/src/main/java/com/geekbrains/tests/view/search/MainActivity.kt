@@ -33,6 +33,7 @@ class MainActivity : AppCompatActivity(), ViewSearchContract {
         toDetailsActivityButton.setOnClickListener {
             startActivity(DetailsActivity.getIntent(this, totalCount))
         }
+        presenter.onAttach()
         setQueryListener()
         setRecyclerView()
     }
@@ -95,6 +96,11 @@ class MainActivity : AppCompatActivity(), ViewSearchContract {
         } else {
             progressBar.visibility = View.GONE
         }
+    }
+
+    override fun onDestroy() {
+        super.onDestroy()
+        presenter.onDetach()
     }
 
     companion object {
