@@ -23,6 +23,7 @@ class DetailsActivity : AppCompatActivity(), ViewDetailsContract {
     private fun setUI() {
         val count = intent.getIntExtra(TOTAL_COUNT_EXTRA, 0)
         presenter.setCounter(count)
+        presenter.onAttach()
         setCountText(count)
         decrementButton.setOnClickListener { presenter.onDecrement() }
         incrementButton.setOnClickListener { presenter.onIncrement() }
@@ -37,6 +38,10 @@ class DetailsActivity : AppCompatActivity(), ViewDetailsContract {
             String.format(Locale.getDefault(), getString(R.string.results_count), count)
     }
 
+    override fun onDestroy() {
+        super.onDestroy()
+        presenter.onDetach()
+    }
     companion object {
 
         const val TOTAL_COUNT_EXTRA = "TOTAL_COUNT_EXTRA"

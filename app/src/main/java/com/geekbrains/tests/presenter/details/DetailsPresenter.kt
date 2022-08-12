@@ -7,8 +7,16 @@ internal class DetailsPresenter internal constructor(
     private var count: Int = 0
 ) : PresenterDetailsContract {
 
+    var view: ViewDetailsContract? = null
+        private set
+
     override fun setCounter(count: Int) {
         this.count = count
+    }
+
+    //for test purpose
+    fun getCounter(): Int {
+        return count
     }
 
     override fun onIncrement() {
@@ -19,5 +27,13 @@ internal class DetailsPresenter internal constructor(
     override fun onDecrement() {
         count--
         viewContract.setCount(count)
+    }
+
+    override fun onAttach() {
+        this.view = viewContract
+    }
+
+    override fun onDetach() {
+        this.view = null
     }
 }
