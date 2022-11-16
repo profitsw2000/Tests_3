@@ -29,11 +29,21 @@
 
     <Button
         android:id="@+id/toDetailsActivityButton"
-        android:layout_width="match_parent"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_margin="@dimen/margin"
         app:layout_constraintTop_toBottomOf="@id/searchEditText"
+        app:layout_constraintLeft_toLeftOf="parent"
         android:text="@string/to_details" />
+
+    <Button
+        android:id="@+id/toExpActivityButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_margin="@dimen/margin"
+        app:layout_constraintTop_toBottomOf="@id/searchEditText"
+        app:layout_constraintRight_toRightOf="parent"
+        android:text="@string/to_exp" />
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/recyclerView"
